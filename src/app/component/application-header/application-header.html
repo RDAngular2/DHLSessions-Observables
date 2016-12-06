@@ -1,0 +1,15 @@
+<div class="navbar navbar-default">
+    <div class="navbar-header">
+       <!-- The moustaches {{ }} are used to define expressions, in this case it should  binds to the 'applicationName'  property of InitialApplicationHeaderComponent -->
+        <div class="navbar-brand">{{applicationName}}</div>
+    </div>
+    <form class="navbar-form navbar-right" >
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search" #searchInput>
+        </div>
+
+
+        <!-- The brackets ( ) are used to bind events to function, in this case it should bind the click event to the 'loginUser" function of the InitialApplicationHeaderComponent -->
+        <i class="fa fa-search" (click)="search(searchInput.value)"></i>
+    </form>
+</div>
