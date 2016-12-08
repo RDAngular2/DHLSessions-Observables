@@ -1,0 +1,8 @@
+<div>
+    <button type="button" class="btn btn-default" (click)="createObservable()">Create Observable</button>
+    <button type="button" class="btn btn-default" (click)="subscribeToObservable()">Subscribe to Observable</button>
+    <button type="button" class="btn btn-default" (click)="unsubscribeFromObservable()">Unsubscribe from Observable</button>
+</div>
+<div style="margin-top: 2rem">
+    <message-viewer [message]="m" *ngFor="let m of messages" ></message-viewer>
+</div>
