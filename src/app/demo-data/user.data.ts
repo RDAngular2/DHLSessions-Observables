@@ -1,6 +1,6 @@
-import {Contact} from "../model/contact";
+import {User} from "../model/user";
 import {InMemoryDbService} from "angular-in-memory-web-api";
-export class ContactData implements InMemoryDbService {
+export class UserData implements InMemoryDbService {
 
     static IT_SKILLS = ['android', 'css', 'html5', 'mac', 'windows'];
     static IT_SKILLS_NAMES = ['Android', 'CSS', 'HTML 5', 'Mac', 'Windows'];
@@ -41,8 +41,8 @@ export class ContactData implements InMemoryDbService {
         "Spain",
         "United Kingdom",
         "United States",
-        "France",
         "Belgium",
+        "France",
         "Germany",
         "Sweden",
         "Norway",
@@ -111,37 +111,46 @@ export class ContactData implements InMemoryDbService {
         '6770 Cinder Glen, Caronport, OH, 45053-5002, US, (440) 369-4018',
         '7619 Tawny Carrefour, Senlac, NV, 89529-9876, US, (775) 901-6433'];
 
-    private static instance : ContactData = new ContactData();
 
     public createDb() : any {
         return {
-            contacts : ContactData.createContacts(1000)
+            users : UserData.createUsers(1000)
         };
     }
 
-    public static createContacts(size:number) {
+    public static createUsers(size:number) {
 
-        var contacts:any[] = [];
+        var users:any[] = [];
 
-        for (var i = 0; i < size; i++) {
-            let contact : Contact = new Contact(null,null,i+1);
-            contact.firstName = ContactData.firstNames[i % ContactData.firstNames.length];
-            contact.lastName = ContactData.lastNames[i % ContactData.lastNames.length];
-            contact.country = ContactData.countries[i % ContactData.countries.length];
-            contact.phone =  ContactData.createRandomPhoneNumber();
-            contact.skills = {
+        let potus = new User("Donald","Trump",0);
+        potus.birthYear = 1946;
+        potus.country = "United States";
+        potus.phone = "(+1) 212-666-00-666"
+        potus.proficiency = 0.1;
+        potus.skills = {
+            twitter: true
+        }
+
+        for (var i = 1; i < size; i++) {
+            let user : User = new User(null,null,i);
+            user.firstName = UserData.firstNames[i % UserData.firstNames.length];
+            user.lastName = UserData.lastNames[i % UserData.lastNames.length];
+            user.country = UserData.countries[i % UserData.countries.length];
+            user.phone =  UserData.createRandomPhoneNumber();
+            user.skills = {
+                twitter: Math.random() < 0.4,
                 android: Math.random() < 0.4,
                 html5: Math.random() < 0.4,
                 mac: Math.random() < 0.4,
                 windows: Math.random() < 0.4,
                 css: Math.random() < 0.4
             },
-            contact.proficiency = Math.round(Math.random() * 100);
-            contact.birthYear = 1970 + Math.round(Math.random() * 30);
-            contacts.push(contact);
+            user.proficiency = Math.round(Math.random() * 100);
+            user.birthYear = 1950 + Math.round(Math.random() * 50);
+            users.push(user);
         }
 
-       return contacts;
+       return users;
     }
 
     private static createRandomPhoneNumber() {

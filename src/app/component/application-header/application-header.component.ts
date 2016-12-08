@@ -1,4 +1,5 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {BehaviorSubject} from "rxjs";
 
 @Component({
     moduleId: module.id,
@@ -18,6 +19,10 @@ export class ApplicationHeaderComponent implements OnInit {
 
     ngOnInit() {
         console.log("Application Header initialized.");
+    }
+
+    public searchValueChanged(searchString:string) {
+        console.log(searchString);
     }
 
 }

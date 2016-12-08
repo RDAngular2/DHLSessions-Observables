@@ -5,11 +5,11 @@
     </div>
     <form class="navbar-form navbar-right" >
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search" #searchInput>
+            <input type="text" class="form-control" placeholder="Search" #searchInput (keyup)="searchValueChanged(searchInput.value)">
         </div>
 
 
         <!-- The brackets ( ) are used to bind events to function, in this case it should bind the click event to the 'loginUser" function of the InitialApplicationHeaderComponent -->
-        <i class="fa fa-search" (click)="search(searchInput.value)"></i>
+        <i class="fa fa-search" (click)="search(searchInput.value)" ></i>
     </form>
 </div>

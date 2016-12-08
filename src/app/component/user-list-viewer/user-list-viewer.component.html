@@ -1,0 +1,5 @@
+<div class="list-group d-table" >
+    <a *ngFor="let u of users;"  class="list-group-item" (click)="handleClick(u)" [class.active]="u == selected">
+        <user-viewer [user]="u" class="d-inline-block"></user-viewer>
+    </a>
+</div>

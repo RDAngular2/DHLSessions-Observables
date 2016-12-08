@@ -9,13 +9,25 @@ import {ToastrModule} from "toastr-ng2";
 import {ApplicationComponent} from './application.component';
 import {ApplicationHeaderComponent} from "./component/application-header/application-header.component";
 import {InMemoryWebApiModule} from "angular-in-memory-web-api";
-import {ContactService} from "./service/contact/contact.service";
-import {ContactData} from "./demo-data/contact-data";
+import {UserService} from "./service/user/user.service";
+import {UserData} from "./demo-data/user.data";
+import {MessageViewerComponent} from "./component/message-viewer/message-viewer.component";
+import {MessageObservableViewerComponent} from "./component/message-observable-viewer/message-observable-viewer.component";
+import {UserListViewerComponent} from "./component/user-list-viewer/user-list-viewer.component";
+import {UserViewerComponent} from "./component/user-viewer/user-viewer.component";
+import {UserEditorComponent} from "./component/user-editor/user-editor.component";
 
 @NgModule({
     declarations: [
         ApplicationComponent,
-        ApplicationHeaderComponent
+        ApplicationHeaderComponent,
+
+        MessageViewerComponent,
+        MessageObservableViewerComponent,
+
+        UserListViewerComponent,
+        UserViewerComponent,
+        UserEditorComponent
     ],
     imports: [
         BrowserModule,
@@ -24,11 +36,12 @@ import {ContactData} from "./demo-data/contact-data";
         HttpModule,
         ToastrModule,
         TypeaheadModule,
-        InMemoryWebApiModule.forRoot(ContactData,{delay:5000})
+        InMemoryWebApiModule.forRoot(UserData,{delay:2000}),
+
 
     ],
     bootstrap: [ApplicationComponent],
-    providers: [ContactService],
+    providers: [UserService],
     schemas : [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class ApplicationModule {

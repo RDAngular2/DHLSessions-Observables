@@ -1,6 +1,6 @@
 
 
-export class Contact {
+export class User {
 
     id : number;
 
@@ -26,8 +26,8 @@ export class Contact {
         this.id = id;
     }
 
-    copy() : Contact {
-        let copy = new Contact(this.firstName,this.lastName,this.id);
+    copy() : User {
+        let copy = new User(this.firstName,this.lastName,this.id);
         copy.country = this.country;
         copy.birthYear = this.birthYear;
         copy.phone = this.phone;

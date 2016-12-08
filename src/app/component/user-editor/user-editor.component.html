@@ -1,0 +1,19 @@
+<form novalidate #userForm="ngForm" >
+    <div class="form-group" >
+        <label>First Name</label><span  class="error" *ngIf="!firstNameInput.valid && firstNameInput.touched">The first name is required</span>
+        <input type="text" [(ngModel)]="user.firstName" class="form-control" name="firstName" #firstNameInput="ngModel" required>
+    </div>
+    <div class="form-group">
+        <label>Last Name</label><span class="error" *ngIf="!lastNameInput.valid && lastNameInput.touched">The last name is required</span>
+        <input type="text" [(ngModel)]="user.lastName" class="form-control" name="lastName" #lastNameInput="ngModel" required>
+    </div>
+    <div class="form-group">
+        <label>Phone</label>
+        <input type="text" [(ngModel)]="user.phone" class="form-control" name="phone" #phoneInput="ngModel" >
+    </div>
+    <div class="form-group">
+        <label>Country</label><span  class="error" *ngIf="!countryInput.valid && countryInput.touched">The country is required</span>
+        <input [(ngModel)]="user.country" [typeahead]="countries" class="form-control" name="country" #countryInput="ngModel" required >
+    </div>
+</form>
+{{user|json}}
