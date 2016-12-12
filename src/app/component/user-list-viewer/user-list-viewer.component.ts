@@ -27,7 +27,9 @@ export class UserListViewerComponent implements OnInit {
         );
     }
 
-    ngOnInit() {}
+    ngOnInit() {
+        this.refresh();
+    }
 
     handleClick(user:User) : void {
         if (user != this.selected) {

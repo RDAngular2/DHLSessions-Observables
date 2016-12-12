@@ -13,8 +13,8 @@ export class UserEditorComponent implements OnInit {
     @ViewChild(NgForm)
     userForm : NgForm;
 
+    @Input()
     user : User = new User();
-
 
     constructor() { }
 
@@ -29,8 +29,12 @@ export class UserEditorComponent implements OnInit {
         );
 
         this.userForm.statusChanges.subscribe(
-            value => console.log(JSON.stringify(value))
+            value => {
+                console.log(value);
+            }
         )
+
+
     }
 
 

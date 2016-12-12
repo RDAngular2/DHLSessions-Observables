@@ -3,5 +3,5 @@
     <button type="button" class="btn btn-default" (click)="unsubscribeFromObservable()">Unsubscribe from Observable</button>
 </div>
 <div style="margin-top: 2rem">
-    <message-viewer [message]="m" *ngFor="let m of messages" ></message-viewer>
+    <div *ngFor="let name of names" >{{name}}</div>
 </div>

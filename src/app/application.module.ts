@@ -16,6 +16,8 @@ import {MessageObservableViewerComponent} from "./component/message-observable-v
 import {UserListViewerComponent} from "./component/user-list-viewer/user-list-viewer.component";
 import {UserViewerComponent} from "./component/user-viewer/user-viewer.component";
 import {UserEditorComponent} from "./component/user-editor/user-editor.component";
+import {ObservableTesterComponent} from "./component/observable-tester/observable-tester.component";
+import {MapExampleViewerComponent} from "./component/map-example-viewer/map-example-viewer.component";
 
 @NgModule({
     declarations: [
@@ -24,6 +26,8 @@ import {UserEditorComponent} from "./component/user-editor/user-editor.component
 
         MessageViewerComponent,
         MessageObservableViewerComponent,
+        MapExampleViewerComponent,
+        ObservableTesterComponent,
 
         UserListViewerComponent,
         UserViewerComponent,

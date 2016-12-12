@@ -19,11 +19,34 @@ export class MessageObservableViewerComponent {
 
     messages : Message[] = [];
 
-    constructor(private toastr:ToastrService) { }
+    names : string[] = [];
 
+    constructor(private toastr:ToastrService) {
+        this.createObservable();
+    }
     createObservable() : void {
-        this.messageObservable = createMessageSource("One source",10,2000);
+        this.messageObservable = this.createMessageObservableByMergeMap();
         this.toastr.success("Message Observable created");
+    }
+
+    private createSimpleMessageObservable(): Observable<Message> {
+        return createMessageSource("1",10,2000);
+    }
+
+    private createMessageObservableByMergingTwoMessageObservables(): Observable<Message> {
+        return null;
+    }
+
+    private createMessageObservableByMergeAll(): Observable<Message> {
+        return null;
+    }
+
+    private createMessageObservableByMergeMap(): Observable<Message> {
+        return null;
+    }
+
+    private createMessageObservableBySwitchMap(): Observable<Message> {
+        return null;
     }
 
     subscribeToObservable() : void {
@@ -43,11 +66,14 @@ export class MessageObservableViewerComponent {
        )
     }
 
+
+
     unsubscribeFromObservable() : void {
         if (this.subscription != null) {
             this.subscription.unsubscribe();
         }
 
     }
+
 
 }

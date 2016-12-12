@@ -2,7 +2,16 @@
 <application-header #header [applicationName]="name" ></application-header>
 <div class="application">
 
+  <!--map-example-viewer></map-example-viewer-->
+
+  <!--observable-tester></observable-tester-->
   <!--message-observable-viewer></message-observable-viewer-->
-  <!--user-list-viewer></user-list-viewer-->
-  <!--user-editor></user-editor--->
+  <div>
+    <div class="col-sm-2" >
+      <user-list-viewer ></user-list-viewer>
+    </div>
+    <div class="col-sm-4">
+      <user-editor #editor></user-editor>
+    </div>
+  </div>
 </div>
